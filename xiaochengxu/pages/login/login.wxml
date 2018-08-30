@@ -1,0 +1,14 @@
+<!--pages/login/login.wxml-->
+
+<view wx:if="{{islogin!=true}}" class="menhu">
+  <view class='tishi'>
+    <i class="fa fa-commenting" /> 请选择登陆方式
+  </view>
+  <button type='primary' open-type="getUserInfo" bindgetuserinfo='shouquan'>微信登陆</button>
+</view>
+<view wx:if="{{islogin==true}}" class="menhu">
+  <view class='tishi'>
+    <i class="fa fa-commenting" /> 欢迎：{{name}}
+  </view>
+
+</view>

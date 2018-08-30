@@ -1,0 +1,74 @@
+@import "../../wxParse/wxParse.wxss";
+.header{
+    display: flex;
+  justify-content:space-around;
+}
+
+.footbar{
+  height: 90rpx;
+}
+.footbar .bar{
+ 
+  height: 90rpx;
+  width: 100%;
+  position:fixed;
+  bottom: 0px;
+  display: flex;
+  justify-content:space-around;
+}
+.bar .bar-item{
+
+  background-color: #eee;
+  width:50%;
+  justify-content:center;
+  text-align: center;
+  align-items: center;
+}
+.bar .shangxia{
+    width: 25%; 
+  flex-direction: column;
+  justify-content:flex-start;
+}
+.bar .shangxia view{  
+  height: 40rpx;
+  display: flex;
+  justify-content:center;
+  text-align: center;
+  align-items: center;
+  font-size: 30rpx;
+}
+/* pages/rwmx/rwmx.wxss */
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.wenzhangtou{
+  display: flex;
+  flex-direction: column; 
+  width: 60%;
+  text-align: left;
+  margin-top: 10rpx;
+}
+.page__title{
+  margin-left:28rpx;
+}
+.zm_list_item_foot{
+  text-align: left;
+}
+.shangjin{
+  width: 40%;
+  text-align: right;
+  display: flex;
+  align-items: center;
+  font-size:50rpx;
+}
+.shangjinlable{
+  width:20px;
+font-size:14px;
+line-height:16px;
+}
+.zmyj{
+  padding: 10rpx 20rpx;
+}

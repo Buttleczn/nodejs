@@ -1,0 +1,60 @@
+<import src="../../wxParse/wxParse.wxml" />
+<view class="rwmx">
+  <view>
+  <view class="header">
+   <view class="wenzhangtou">
+      <view class="page__title">{{renwu.title}}
+      </view>
+      <view class="page__desc">
+        <view class="zm_list_item_foot">
+          <view>发布日期：{{renwu.created_at}}</view>
+        </view>
+      </view>
+    </view>
+    <view class="shangjin shanguang">
+      <text class='shangjinlable' >赏金</text>
+      <image src="../../style/img/shangjin.png" style="width:80rpx;height:100rpx;" ></image>
+      <text>{{renwu.shangjin}}元</text> 
+    </view>
+  </view>
+   
+    <view>
+      <view class="weui-article">
+        <view>
+         
+          <view class="weui-article_p">
+            <text space="nbsp">{{renwu.meno}}</text> 
+          </view>
+
+          <view class="weui-article_p">
+            <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+              <block wx:for="{{renwu.img}}" wx:for-item="item" wx:key="*this">
+                <swiper-item>
+                  <image src="{{item}}" class="weui-article__img" mode="aspectFit"  />
+                </swiper-item>
+              </block>
+            </swiper>
+            <!--<image class="weui-article__img" src="{{renwu.img}}" mode="aspectFit" bindtap="previewImageOne" data-src="{{renwu.img}}" />-->
+          </view>
+        </view>
+        <view class="weui-article">
+          <view class="weui-article__h1" style="color:red;">分享此条信息，每当有一个人点击，您将获得{{renwu.zdanjia}}元，当前可分享条数{{renwu.zmaxtiaoshu}}</view>
+        </view> 
+      </view>
+    </view>
+  </view>
+  <view class="footbar">
+    <view class='bar'>
+
+      <button class='bar-item' open-type="share">
+        <view class="fa fa-share-square-o"> 转发</view>
+      </button>
+      <button class='bar-item' bindtap='dadianhua' data-dianhua="{{renwu.dianhua}}">
+        <view class="fa fa-phone"> 咨询</view>
+      </button>
+      <button class='bar-item' bindtap="shouye">
+        <view class="fa fa-reply"> 首页</view>
+      </button>
+    </view>
+  </view>
+</view>

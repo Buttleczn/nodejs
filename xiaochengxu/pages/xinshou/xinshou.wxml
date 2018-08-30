@@ -1,0 +1,19 @@
+<view>
+<view class="wenzhangtou">
+      <view class="page__title">{{biaoti}}</view>
+      <view class="page__desc">
+        <view class="zm_list_item_foot">
+       
+          <view class="weui-media-box__info__meta">{{xiaobiaoti}}</view>
+      
+        </view>
+      </view>
+    </view>
+    <view>
+      <view class="weui-article">
+        <web-view src="https://xiaochengxu.yunkucun.top/html/test.html">
+        </web-view>
+         
+      </view>
+    </view>
+</view>

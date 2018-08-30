@@ -1,0 +1,14 @@
+/* pages/login/login.wxss */
+.menhu{
+  display: flex;
+   flex-direction: column ;
+  justify-content: center;
+  align-items:center;
+  height: 1000rpx;
+}
+
+.tishi{
+  height: 200rpx;
+  font-size: 40rpx;
+  color: red;
+}

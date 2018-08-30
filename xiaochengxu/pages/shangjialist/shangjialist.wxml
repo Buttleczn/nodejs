@@ -1,0 +1,76 @@
+<scroll-view upper-threshold="50" bindscrolltoupper="chaxunlist">
+  <!--标签-->
+  <view>
+    <view class="zm-navbar-area">
+
+      <view class="zm_navbar ">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="zm_drop_btn">
+            <i class="fa fa-map-marker" /> {{diqu}}
+          </view>
+        </picker>
+      </view>
+      <view style='width:500rpx;'>
+        <i class="fa fa-search" style="float:left;margin-top:5px;" />
+        <input style='width:400rpx;padding-left:15px;' value='{{keys}}' data-bind="keys" bindchange="keyschangge" placeholder="请输入关键词" />
+      </view>
+    </view>
+
+  </view>
+  <!--分类图标-->
+  <view>
+    <swiper class="swipertabs" indicator-dots="true" duration="1000">
+      <block wx:for="{{lxlistfenye}}" wx:for-item="lxtab" wx:key="bm">
+        <swiper-item>
+          <view class="weui-grids">
+            <view wx:for="{{lxtab}}" wx:key="icon">
+              <view wx:if="{{item.bm!='xxxxx'}}" bindtap='changelx' data-param="{{item.bm}}" class="shouye-grid" hover-class="weui-grid_active">
+                <image class="weui-grid__icon flicon" src="{{imgsrcbase}}{{item.icon}}"  ></image>
+                <text class="weui-grid__label">{{item.mc}}</text>
+              </view>
+              <view wx:if="{{item.bm=='xxxxx'}}" class="shouye-grid ">
+                <image class="weui-grid__icon flicon" src="../../style/img/xuanshang.png"  ></image>
+                <text class="weui-grid__label">...</text>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+  <!--结果列表-->
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+
+        <view class="zm_list" wx:for="{{rwlist}}" wx:key="pid">
+
+          <view style='width:100%;display:flex; flex-direction:column;'>
+            
+            <navigator url="../shangjiamx/shangjiamx?mxtype=lqrw&pid={{item.pid}}" class='rwmxarea'  hover-class="weui-cell_active">
+              <view class="">
+                <image class="rwimg" src="{{imgsrcbase}}{{item.shangbiaoimgs}}" />
+              </view>
+             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">             
+                <view class="weui-media-box__title"><text wx:if="{{item.sftg==1}}" style='color:red;'>[赏金托管]</text>{{item.title}}</view>
+                <view class="weui-media-box__desc" style='height:80rpx;'>{{item.meno}}</view>
+                <view class="weui-media-box__weizhi fa fa-map-marker">{{item.weizhi_name}}</view>
+              </view>
+            
+             
+            </navigator>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+<view>
+<text class="footertishi">没有更多了。。。</text>
+</view>
+</scroll-view>
+
+<view class="fudonganniu" bindtap='shangjiaruzhu'>
+入驻
+</view>

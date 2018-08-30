@@ -1,0 +1,68 @@
+<view class="rwmx">
+  <view class="header">
+    <view class="shangbiao">
+      <image src="{{imgsrcbase}}{{shangjia.shangbiaoimgs}}" class="userinfo-avatar"></image>
+    </view>
+    <view style="display:flex;flex-direction:column;">
+      <view>
+        <text class="title">{{shangjia.title}}</text>
+      </view>
+      <view>
+        <text class="title yingyeshijian">营业时间：{{shangjia.starttime}}--{{shangjia.endtime}}</text>
+      </view>
+    </view>
+  </view>
+  <view style='height:30rpx;text-align:center;'>
+  </view>
+  <scroll-view upper-threshold="50" scroll-y style='height:800rpx;' >
+    <view style='text-align:center;'>
+      <image src="{{imgsrcbase}}{{shangjia.shangbiaoimgs}}"></image>
+    </view>
+
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">位置</view>
+      </view>
+      <view class="weui-cell__bd">
+        <view class="weui-select weui-select_in-select-after" bindtap='openweizhi'>{{shangjia.weizhi_name}}</view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_select">
+      <view class="weui-cell__hd weui-cell__hd_in-select-after">
+        <view class="weui-label">电话</view>
+      </view>
+      <view class="weui-cell__bd">
+      <view class="weui-select weui-select_in-select-after"  bindtap='dadianhua' data-dianhua="{{shangjia.dianhua}}">
+        {{shangjia.dianhua}}
+        </view>
+      </view>
+    </view>
+    <view class="weui-cell weui-cell_input">
+      <view class="weui-cell__hd">
+        <view class="weui-label">营业时间</view>
+      </view>
+      <view class="weui-cell__bd">
+      <view class="weui-input">
+      {{shangjia.starttime}}--{{shangjia.endtime}}
+      </view>
+        
+      </view>
+
+    </view>
+    <view class="weui-cell weui-cell-mone weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-textarea">店铺简介</view>
+        </view>
+        <view class="weui-cell__bd ">
+
+<view class="weui-textarea weui-media-box__desc" >
+ {{shangjia.meno}}
+</view>
+           
+        </view>
+      </view>
+    
+
+  </scroll-view>
+
+</view>

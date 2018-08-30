@@ -1,0 +1,128 @@
+<scroll-view upper-threshold="50" bindscrolltoupper="chaxunlist">
+  <!--标签-->
+  <view>
+    <view class="zm-navbar-area">
+
+      <view class="zm_navbar ">
+        <picker mode="region" bindchange="bindRegionChange" value="{{region}}" custom-item="{{customItem}}">
+          <view class="zm_drop_btn">
+            <i class="fa fa-map-marker" /> {{diqu}}
+          </view>
+        </picker>
+      </view>
+      <view style='width:500rpx;'>
+        <i class="fa fa-search" style="float:left;margin-top:5px;" />
+        <input style='width:400rpx;padding-left:15px;' value='{{keys}}' data-bind="keys" bindchange="keyschangge" placeholder="请输入关键词" />
+      </view>
+    </view>
+
+  </view>
+  <!--分类图标-->
+  <view>
+    <swiper class="swipertabs" indicator-dots="true" duration="1000">
+      <block wx:for="{{lxlistfenye}}" wx:for-item="lxtab" wx:key="bm">
+        <swiper-item>
+          <view class="weui-grids">
+            <view wx:for="{{lxtab}}" wx:key="icon">
+              <navigator wx:if="{{item.bm!='xxxxx'}}" url="../renwuflcx/renwuflcx?rwtype=flcx&rwfl={{item.bm}}" class="shouye-grid" hover-class="weui-grid_active">
+                <image class="weui-grid__icon flicon" src="{{imgsrcbase}}{{item.icon}}"  ></image>
+                <text class="weui-grid__label">{{item.mc}}</text>
+              </navigator>
+              <view wx:if="{{item.bm=='xxxxx'}}" class="shouye-grid ">
+                <image class="weui-grid__icon flicon" src="../../style/img/xuanshang.png"  ></image>
+                <text class="weui-grid__label">...</text>
+              </view>
+            </view>
+          </view>
+        </swiper-item>
+      </block>
+    </swiper>
+  </view>
+
+
+  <!--广告轮播-->
+
+  <swiper class="swiper" indicator-dots="true" autoplay="true" interval="5000" duration="1000">
+    <block wx:for="{{movies}}" wx:for-item="item" wx:key="icon">
+      <swiper-item>
+        <image src="{{imgsrcbase}}{{item.icon}}" class="slide-image" mode="aspectFill" />
+      </swiper-item>
+    </block>
+  </swiper>
+<!--统计-->
+<view style='width:100%;display:flex; flex-direction:row;align-items:flex-end;justify-content:flex-end;'>
+<view style='width:10%;text-align:end;'>
+<image src='../../style/img/tongji.png' style="height:40rpx;width:40rpx;"></image>
+</view>
+<view style='width:90%;text-align:end; padding-right:20rpx;'>
+总浏览：{{zongliulan}}  总发布：{{fabushuliang}} 店铺：{{dianpushuliang}}    
+</view>
+</view>
+
+  <!--排序-->
+  <view>
+    <view class="weui-navbar">
+      <block wx:for="{{tabs}}" wx:key="*this">
+        <view id="{{index}}" class="weui-navbar__item {{activeIndex == index ? 'weui-bar__item_on' : ''}}" bindtap="tabClick">
+          <view class="weui-navbar__title">{{item}}</view>
+        </view>
+      </block>
+    </view>
+    <view class="weui-navbar__slider" style="width:50%; left: {{sliderLeft}}px; transform: translateX({{sliderOffset}}px); -webkit-transform: translateX({{sliderOffset}}px);"></view>
+  </view>
+
+  <!--结果列表-->
+  <view class="page__bd page__bd_spacing">
+    <view class="weui-panel weui-panel_access">
+      <view class="weui-panel__bd">
+
+        <view class="zm_list" wx:for="{{rwlist}}" wx:key="pid">
+
+          <view style='width:100%;display:flex; flex-direction:column;'>
+            <view class="rwheader">
+              <view style='display:flex;flex-direction:row;align-items:center;justify-content:flex-start; '>
+                <view style=' padding-top:10rpx; padding-left:10rpx;'>
+                  <image src="{{item.avatarUrl}}" background-size="cover" class="userinfo-avatar"></image>
+                </view>
+                <view class="rwl_fbr">
+                  <view class="userinfo-nickname">{{item.nickName}}</view>
+                  <view class="rwlx_zx">
+                    <button class="biaoqian" size="mini" type="primary">{{item.lxmc}}</button>
+                    <button class="zixun" type="primary" style='margin-left:30rpx;' size="mini" bindtap='dadianhua' data-dianhua="{{item.dianhua}}" data-shjg='01'>接任务</button>
+                  </view>
+                </view>
+              </view>
+              <view style='width:60%;display:flex;flex-direction:row;align-items:center;justify-content:flex-end;' class="shangjin shanguang">
+               <text class='shangjinlable' >赏金</text>
+                <image src="../../style/img/shangjin.png" style="width:60rpx;height:80rpx;"></image>
+                <text>{{item.shangjin}}</text>
+                <text class='shangjinlable' style='height:24rpx;' >元</text>
+              </view>
+
+            </view>
+            <navigator url="../rwmxll/rwmxll?mxtype=lqrw&pid={{item.pid}}" class='rwmxarea'  hover-class="weui-cell_active">
+             <view class="weui-media-box__bd weui-media-box__bd_in-appmsg">             
+                <view class="weui-media-box__title"><text wx:if="{{item.sftg==1}}" style='color:red;'>[赏金托管]</text>{{item.title}}</view>
+                <view class="weui-media-box__desc">{{item.meno}}</view>
+              </view>
+              <view class="">
+                <image class="rwimg" src="{{item.img}}" />
+              </view>
+             
+            </navigator>
+          </view>
+          <view class="zm_list_item_foot">
+            <view class="weui-media-box__info__meta">{{item.liulan}}</view>
+            <view class="weui-media-box__info__meta">浏览量</view>
+            <view class="weui-media-box__info__meta">{{item.created_at}}</view>
+            <view class="weui-media-box__info__meta">发布日期</view>
+          </view>
+        </view>
+      </view>
+    </view>
+
+  </view>
+<view>
+<text class="footertishi">没有更多了。。。</text>
+</view>
+</scroll-view>

@@ -1,0 +1,112 @@
+/* pages/rwmx/rwmx.wxss */
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.wenzhangtou{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weui-media-box__info__meta{
+  float: right;
+}
+.zmyj{
+  padding: 10rpx 20rpx;
+}
+
+.line {  
+  width: 100%;  
+  height: 1px;  
+  background-color: #cccccc;  
+  margin-top: 100px;  
+}  
+
+
+.item1{
+  display: flex;
+  width: 100%;
+  align-items:center;
+  height: 180rpx;
+  border-bottom: 1rpx solid #efefef;
+  padding: 10rpx 0rpx 10rpx 0rpx;
+  position: relative;
+}
+
+.xueBaIcon{
+  position:absolute;
+  width: 300rpx;
+  height: 240rpx;
+  left:50rpx;
+}
+
+.item2{
+  display: flex;
+  width: 100%;
+  align-items:center;
+  height: 130rpx;
+  border-bottom: 1rpx solid #efefef;
+  padding: 10rpx 0rpx 10rpx 0rpx;
+}
+
+
+.left{
+  display:flex;
+  align-items:center;
+  float: left;
+  width: 30%;
+}
+
+.left_left1{
+  text-align: center;
+  font-size: 70rpx;
+  float: left;
+  color: #fac819;
+  width: 30%;
+}
+
+.left_left2{
+  text-align: center;
+  font-size: 45rpx;
+  float: left;
+  color: #333333;
+  width: 30%;
+}
+
+.left_right{
+  float: right;
+  width: 70%;
+}
+ 
+.middle{
+  text-align: center;
+  float: left;
+  width: 40%;
+}
+
+.middle_top{
+  margin-left: 8rpx;
+  font-size: 30rpx;
+}
+.middle_bottom{
+  margin-top: 8rpx;
+  font-size: 25rpx;
+  color: #7a7a7a;
+  
+}
+
+.right{
+  align-items:center;
+  float: right;
+  width: 30%;
+}
+
+.userPhoto{
+    display: flex;
+    width: 100rpx;
+    height: 100rpx;
+    border-radius: 50%;
+    margin: 0 auto;
+}

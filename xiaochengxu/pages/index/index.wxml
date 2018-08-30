@@ -1,0 +1,182 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page__bd">
+
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+   
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">标题</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value='{{title}}' data-bind="title" bindblur="valuechangge" placeholder="最简单的说明" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">任务分类</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bianqiangaibian" value="{{lxindex}}" range-key="mc" range="{{lxlist}}">
+            <view class="weui-select weui-select_in-select-after">{{lxlist[lxindex].mc}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">赏金</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="digit" value="{{shangjin}}" data-bind="shangjin" bindblur="valuechangge" placeholder-class="zhongdiantishi" placeholder="0.00" />
+        </view>
+        <view class="weui-cell__ft">
+          <view class="weui-vcode-btn">元</view>
+        </view>
+      </view>
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">一口价</view>
+          <view class="weui-cell__ft">
+            <switch bindchange="valuechangge" data-bind="yikoujia" />
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cells weui-cells_after-title">
+        <view class="weui-cell weui-cell_switch">
+          <view class="weui-cell__bd">转发赏金</view>
+          <view class="weui-cell__ft">
+            <switch bindchange="zhuanfachangge" data-bind="zhuanfa" />
+          </view>
+        </view>
+      </view>
+
+      <view wx:if="{{zhuanfa}}" class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">预计转发赏金总额：</view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="digit" value="{{zshangjin}}" data-bind="zshangjin" bindblur="zhuanfagaibian" placeholder-class="zhongdiantishi" placeholder="0.00" />
+        </view>
+        <view class="weui-cell__ft">
+          <view class="weui-vcode-btn">元</view>
+        </view>
+      </view>
+
+      <view wx:if="{{zhuanfa}}" class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">单条价格：</view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" type="digit" value="{{zdanjia}}" data-bind="zdanjia" bindblur="valuechangge" placeholder-class="zhongdiantishi" placeholder="0.00" />
+        </view>
+        <view class="weui-cell__ft">
+          <view class="weui-vcode-btn">元</view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">有效日期</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="date" data-bind="riqi" value="{{riqi}}" start="2015-09-01" end="3030-01-01" bindchange="valuechangge">
+            <view class="weui-input">{{riqi}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell-mone weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-textarea">任务描述</view>
+        </view>
+        <view class="weui-cell__bd">
+
+          <textarea class="weui-textarea" value="{{zhaiyao}}" data-bind="zhaiyao" bindinput="valuechangge" placeholder="介绍一下具体要做什么" style='height:400rpx;' maxlength='600'  />
+          <view class="weui-textarea-counter">{{zhaiyao.length}}/600</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-uploader">
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+            <block wx:for="{{files}}" wx:key="*this">
+              <view class="weui-uploader__file" bindtap="previewImage" data-src="{{item}}">
+                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>
+          </view>
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-cells__title">关键信息</view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">位置</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-select weui-select_in-select-after" bindtap='xuanzeweizhi'>{{weizhi.name}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">电话</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view wx:if="{{dianhua!=null && dianhua!=''}}" class="weui-select weui-select_in-select-after">{{dianhua}}</view>
+          <view wx:else>
+            <button open-type="getPhoneNumber" bindgetphonenumber="getPhoneNumber" class="weui-btn mini-btn" type="warn" size="mini">获取手机号 </button>
+          </view>
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title"></view>
+    <view class="weui-cells weui-cells_after-title">
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">我要置顶</view>
+        <view class="weui-cell__ft">
+          <switch bindchange="zhidingchangge" data-bind="zhiding" />
+        </view>
+      </view>
+
+      <view wx:if="{{zhiding}}" class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">置顶天数</view>
+        <view class="weui-cell__ft">
+          <picker bindchange="zhidinggaibian" value="{{zdtsindex}}" range-key="zdts" range="{{zdtslist}}">
+            <view class="weui-select " style="border-width:0px;">{{zdtslist[zdtsindex].zdts}}天</view>
+          </picker>
+        </view>
+      </view>
+      <view wx:if="{{zhiding}}" class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">价格</view>
+        <view class="weui-cell__ft">
+          <view style="padding-right:30px;color:red;">￥{{zdtslist[zdtsindex].zdjg}}元</view>
+
+        </view>
+
+      </view>
+
+      <view class="weui-cell weui-cell_switch">
+        <view class="weui-cell__bd">费用总计</view>
+        <view class="weui-cell__ft">
+          <view style="padding-right:30px;color:red;">￥{{fbfy}}元</view>
+
+        </view>
+
+      </view>
+    </view>
+    <label class="weui-agree" for="weuiAgree">
+    <view class='showimg'>
+    <image  src="{{imgsrcbase}}{{lxlist[lxindex].guanggao}}"></image>
+    </view>
+    
+      <view class="weui-agree__text">
+        阅读并同意
+        <navigator url="../mianze/mianze" class="weui-agree__link">《免责声明》</navigator>
+      </view>
+    </label>
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="FaBuRenWu">提交</button>
+    </view>
+  </view>
+</view>

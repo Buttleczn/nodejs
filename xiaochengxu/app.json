@@ -1,0 +1,63 @@
+{
+  "pages": [
+  
+  "pages/shouye/shouye",
+  "pages/rwmxll/rwmxll",
+   "pages/login/login",
+    "pages/rwmx/rwmx",
+    "pages/jiaofei/jiaofei",
+    "pages/index/index",
+    "pages/renwulist/renwulist",
+    "pages/renwuflcx/renwuflcx",
+    "pages/logs/logs",
+    "pages/xinshou/xinshou",
+    "pages/shangjialist/shangjialist",
+    "pages/shangjia/shangjia",
+    "pages/shangjiamx/shangjiamx",
+    "pages/qianbao/qianbao",
+    "pages/mianze/mianze"
+  ],
+  "window": {
+    "backgroundTextStyle": "light",
+    "navigationBarBackgroundColor": "#d81e06",
+    "navigationBarTitleText": "WeChat",
+    "navigationBarTextStyle": "black"
+  },
+  "tabBar": {
+    "color":"#333",
+    "selectedColor":"#6e6",
+    "borderStyle":"black",
+    "list": [
+      {
+        "pagePath": "pages/shouye/shouye",
+        "iconPath": "style/img/lingqu_0.png",
+        "selectedIconPath": "style/img/lingqu_1.png",
+        "text": "接任务"
+      },
+      {
+        "pagePath": "pages/index/index",
+        "iconPath": "style/img/fabu_0.png",
+        "selectedIconPath": "style/img/fabu_1.png",
+        "text": "发任务"
+      },
+      {
+        "pagePath": "pages/shangjialist/shangjialist",
+        "iconPath": "style/img/shangjia_0.png",
+        "selectedIconPath": "style/img/shangjia_1.png",
+        "text": "商家"
+      },
+      {
+        "pagePath": "pages/xinshou/xinshou",
+        "iconPath": "style/img/xinshou_0.png",
+        "selectedIconPath": "style/img/xinshou_1.png",
+        "text": "新手学堂"
+      },
+      {
+        "pagePath": "pages/logs/logs",
+        "iconPath": "style/img/ziji_0.png",
+        "selectedIconPath": "style/img/ziji_1.png",
+        "text": "我的"
+      }
+    ]
+  }
+}

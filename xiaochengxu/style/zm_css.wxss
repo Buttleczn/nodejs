@@ -1,0 +1,114 @@
+.zhongdiantishi {
+  color: red;
+}
+.weui-cell_select{
+  overflow: hidden;
+}
+.zm-navbar-area{
+  padding-top: 20rpx;
+}
+
+.zm_list {
+  align-items: flex-start;
+}
+
+.zm_list_item_foot {
+  padding-bottom: 5px;
+  font-size: 13px;
+  color: #cecece;
+  line-height: 1em;
+  list-style: none;
+  overflow: hidden;
+  margin-left: 28rpx;
+}
+
+.foot-btn-list {
+  display: flex;
+  padding-bottom: 50rpx;
+  padding-left: 50rpx;
+  padding-right: 50rpx;
+  padding-top: 20rpx;
+  border-top: #ccc 1px solid;
+}
+
+.zm_drop_btn {
+  position: relative;
+  padding-left: 15px;
+  padding-right: 30px; 
+  min-height:30px;
+  line-height: 30px;
+ }
+
+.zm_drop_btn::before { 
+  display: inline-block;
+  height: 6px;
+  width: 6px;
+  border-width: 2px 2px 0 0;
+  border-color: #c8c8cd;
+  border-style: solid;
+  right: 15px;
+  margin-top: -4px;
+  margin-right: 10px;
+}
+
+/* 轮播图 */
+.swiper {
+  height: 310rpx;
+  width: 100%;
+}
+.swiper image {
+  height: 300rpx;
+  width: 100%;
+}
+
+/*动画效果：旋转 */
+
+.xuanzhuan {
+  -webkit-animation: xuanzhuan 3s linear infinite; /*2代表动画执行2次*/
+  animation: xuanzhuan 3s linear infinite;
+}
+
+/*定义动画*/
+
+@-webkit-keyframes xuanzhuan {
+  /*兼容性写法。spin是关键帧的动画名称*/
+
+  from {
+    /*动画起始状态*/
+    -webkit-transform: rotate(0deg);
+  }
+
+  to {
+    /*动画结束状态*/
+    -webkit-transform: rotate(360deg);
+  }
+}
+
+@keyframes xuanzhuan {
+  from {
+    transform: rotate(0deg);
+  }
+
+  to {
+    transform: rotate(360deg);
+  }
+}
+
+/*动画效果：闪光 */
+
+.shanguang {
+  -webkit-animation: shanguang 1s linear infinite alternate; /*2代表动画执行2次*/
+  animation: shanguang 1s linear infinite alternate;
+}
+
+/*定义动画*/
+
+@keyframes shanguang {
+  from {
+    color: gold;
+  }
+
+  to {
+    color: red;
+  }
+}

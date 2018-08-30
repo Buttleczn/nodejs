@@ -1,0 +1,115 @@
+<!--pages/rwmx/rwmx.wxml-->
+<view class="page">
+  <view wx:if="{{mxtype=='mine'}}" class="weui-panel weui-panel_access">
+    <!--自己操作框-->
+    <view class="weui-panel">
+      <view class="zm-navbar-area">
+        <view class="zm_navbar ">
+          <view class="weui-select weui-select_in-select-after" bindtap="showtab" data-tab="1">审核记录</view>
+        </view>
+        <view class="zm_navbar ">
+          <view class="weui-select weui-select_in-select-after" bindtap="chexiao" data-tab="1">撤销</view>
+        </view>
+        <view class="zm_navbar ">
+          <view class="weui-select weui-select_in-select-after" bindtap="jiaofei" data-tab="1">缴费</view>
+        </view>
+      </view>
+    </view>
+  </view>
+
+  <view wx:if="{{tab==0}}">
+    <view class="wenzhangtou">
+      <view class="page__title">{{renwu.title}}[
+        <text style='color:red;'>{{renwu.zhuangtai}}</text>]
+      </view>
+      <view class="page__desc">
+        <view class="zm_list_item_foot">
+          <view class="weui-media-box__info__meta shanguang">{{renwu.shangjin}}</view>
+          <view class="weui-media-box__info__meta ">赏金：</view>
+          <view class=" weui-media-box__info__meta">|</view>
+          <view class="weui-media-box__info__meta">{{renwu.created_at}}</view>
+          <view class="weui-media-box__info__meta">发布日期：</view>
+        </view>
+      </view>
+    </view>
+    <view class="weui-article">
+      <view class="weui-article_p">
+        <view class="weui-uploader_files" id="uploaderFiles">
+          <block wx:for="{{renwu.img}}" wx:key="*this">
+            <view class="weui-uploader__file"  data-src="{{item}}">
+              <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+            </view>
+          </block>
+        </view>
+        
+          <!--<view class="weui-article__p">
+            {{renwu.meno}}
+          </view>
+          <view class="weui-article__p">
+            <image class="weui-article__img" src="{{renwu.img}}" mode="aspectFit" />
+          </view>-->
+      </view>
+    </view>
+
+    <view class="line"></view>
+
+    <view style="text-align:center">
+       <view class="weui-article__h1" >浏览履历</view>
+
+       <view class='ranking' wx:for="{{rwhis}}" wx:key="*this">
+        <view class="item1">
+          <view class='left'>
+            <view class='left_left1'>
+              {{index+1}}
+            </view>
+            <view class='left_right'>
+              <image class="userPhoto"    src="{{item.avatarUrl}}" />
+            </view>
+          </view>
+
+          <view class='middle'>
+            <view class='middle_top'>
+              {{item.nickName}}
+            </view>
+          </view>
+        </view>
+       </view>
+
+      <!--<view >
+        <block wx:for="{{rwhis}}" wx:key="*this">
+          <view class=""  data-src="{{item.avatarUrl}}">
+            <image class="weui-uploader_img" src="{{item.avatarUrl}}" mode="aspectFill" />
+          </view>
+        </block>
+      </view>-->
+    </view>
+
+    <view wx:if="{{mxtype=='shh'}}" class="weui-panel weui-panel_access">
+      <!-- 审核框-->
+      <view class="weui-panel">
+        <view class="weui-cell__bd zmyj">
+          <textarea value="{{shyj}}" data-bind="shyj" bindinput="valuechangge" class="weui-textarea" placeholder="这里写审核意见，比如：内容三俗不予通过....." />
+        </view>
+        <view class="foot-btn-list">
+          <button class="mini-btn" type="primary" size="mini" bindtap='shjg' data-shjg='01' >通过</button>
+          <button class="mini-btn" type="warn" size="mini"  bindtap='shjg' data-shjg='02'  >拒绝</button>
+        </view>
+      </view>
+    </view>
+
+    <view wx:if="{{mxtype=='wwgz'}}" class="weui-panel weui-panel_access">
+      <!-- 交任务框 -->
+      <view class="weui-panel">
+
+      </view>
+    </view>
+    <view wx:if="{{mxtype=='lqrw'}}" class="weui-panel weui-panel_access">
+      <!-- 领任务框 -->
+      <view class="weui-panel">
+        <button class="mini-btn" type="primary" style='margin-left:120rpx;' size="mini" bindtap='dadianhua' data-dianhua="{{renwu.dianhua}}" data-shjg='01' >咨询任务</button>
+      </view>
+    </view>
+  </view>
+</view>
+
+    

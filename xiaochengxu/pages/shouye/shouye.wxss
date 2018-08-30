@@ -1,0 +1,171 @@
+/* pages/login/login.wxss */
+
+.searchbar-result {
+  margin-top: 0;
+  font-size: 14px;
+}
+
+.searchbar-result:before {
+  display: none;
+}
+
+.weui-cell {
+  padding: 12px 15px 12px 35px;
+}
+
+.weui-navbar {
+  position: none;
+}
+
+.weui-media-box__info__meta {
+  float: right;
+}
+
+.zm_list {
+  align-items: flex-start;
+}
+.swipertabs{
+  height:400rpx;
+width: 100%;
+}
+.shouye-grid {
+  background-color:#fff;
+  position: relative;
+  float: left;
+  padding: 10rpx 10rpx;
+  width: 25%;
+  box-sizing: border-box; 
+}
+.shouye-grid .weui-grid__label{
+  line-height: 32rpx;
+}
+
+.shouye-grid .flicon{
+  width:120rpx;
+  height:120rpx;
+  border-radius: 50%;
+}
+
+.shangjinlable{
+  width:40rpx;
+font-size:30rpx;
+line-height:32rpx;
+
+}
+.rwheader{
+  height:120rpx;
+  display:flex;
+  flex-direction:row;
+  align-items:center;
+  justify-content:flex-start;
+}
+.rwmxarea{
+  width:100%;
+  display:flex;
+  flex-direction:column;
+  align-items:flex-start;
+}
+.weui-media-box__desc{
+  line-height: 40rpx;
+}
+
+.zm_list{
+  
+  border-bottom: 20rpx solid #eee;
+}
+.zm_list::after{
+  content: " ";
+  background-color: #ccc;
+}
+button.biaoqian{
+  background-color: gold;
+  color: #333;
+  height: auto;
+  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+button.zixun{
+   height: auto;
+  padding: 5px;
+  padding-left: 5px;
+  padding-right: 5px;
+  padding-top: 0px;
+  padding-bottom: 0px;
+}
+
+
+
+.kbitem{
+  height: 100%;
+  width: 100%;
+  background-color: #eee;
+  font-size: 80rpx;
+  line-height: 80rpx;
+  text-align: center;
+  
+}
+
+.rwl_fbr{
+  height:100rpx
+}
+
+.userinfo-avatar {
+  width:100rpx;
+  height:90rpx;
+  margin-right:10rpx;
+  border-radius: 40%;
+  
+}
+
+.rwl_fbr .userinfo-nickname{
+  width: 300rpx;
+  height: 40rpx;
+  color:#3cf;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+  -o-text-overflow: ellipsis;
+  overflow: hidden;
+}
+
+.rwl_fbr .rwlx_zx{
+  height:50rpx;
+  padding-top: 10rpx;
+}
+.rwl_fbr .rwlx_zx button{
+   height:40rpx;
+   line-height: 40rpx;
+}
+.rwlx{
+  width: 150rpx;
+  height: 40rpx;
+  padding: 6rpx;
+  overflow: hidden;
+}
+
+.rwimg{
+  width:160rpx;
+  height:170rpx;
+  margin-right: 20rpx;
+}
+
+.shangjin{
+    font-size:44rpx;
+}
+.footertishi
+{
+  width:100%;
+  text-align:center;
+color:#666;
+height:40rpx;
+line-height:40rpx;
+padding-bottom:20rpx;
+display: inline-block;
+}
+.zm_drop_btn{
+  width: 250rpx;
+  overflow: hidden;
+}
+

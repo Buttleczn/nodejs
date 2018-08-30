@@ -1,0 +1,14 @@
+page{
+    background-color: #FFFFFF;
+}
+image{
+    margin: 4px 0;
+}
+.wenzhangtou{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.weui-media-box__info__meta{
+  float: right;
+}

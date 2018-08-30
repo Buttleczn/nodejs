@@ -1,0 +1,5 @@
+{
+  "navigationBarTitleText": "任务列表",
+  "onReachBottomDistance": 100,
+  "enablePullDownRefresh": true
+}

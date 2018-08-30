@@ -1,0 +1,121 @@
+<!--index.wxml-->
+<view class="container">
+  <view class="page__bd">
+
+    <view class="weui-toptips weui-toptips_warn" wx:if="{{showTopTips}}">错误提示</view>
+
+    <view class="weui-cells">
+      <view class="weui-cell weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label">商家名称</view>
+        </view>
+        <view class="weui-cell__bd">
+          <input class="weui-input" value='{{title}}' data-bind="title" bindblur="valuechangge" placeholder="请输入商铺名称" />
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">类型</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker bindchange="bianqiangaibian" value="{{lxindex}}" range-key="mc" range="{{lxlist}}">
+            <view class="weui-select weui-select_in-select-after">{{lxlist[lxindex].mc}}</view>
+          </picker>
+        </view>
+      </view>
+  <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">开始营业</view>
+        </view>
+        <view class="weui-cell__bd">
+          <picker mode="time"  value="{{starttime}}" data-bind="starttime" bindchange="valuechangge" >
+            <view class="weui-select weui-select_in-select-after">{{starttime}}</view>
+          </picker>
+        </view>
+      </view>
+        <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">停止营业</view>
+        </view>
+        <view class="weui-cell__bd">
+         <picker mode="time"  value="{{endtime}}" data-bind="endtime" bindchange="valuechangge" >
+            <view class="weui-select weui-select_in-select-after">{{endtime}}</view>
+          </picker>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell-mone weui-cell_input">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-textarea">店铺简介</view>
+        </view>
+        <view class="weui-cell__bd">
+
+          <textarea class="weui-textarea" value="{{zhaiyao}}" data-bind="zhaiyao" bindinput="valuechangge" placeholder="介绍一下具体要做什么" style='height:200rpx;' maxlength='310' />
+          <view class="weui-textarea-counter">{{zhaiyao.length}}/300</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-uploader">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-textarea">商标</view>
+        </view>
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+            <block wx:for="{{shangbiaofiles}}" wx:key="*this">
+              <view class="weui-uploader__file" bindtap="previewImage" data-src="{{item}}">
+                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>
+          </view>
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input"  data-bind="shangbiaofiles" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+      <view class="weui-cell weui-uploader">
+        <view class="weui-cell__hd">
+          <view class="weui-label weui-label-textarea">店面</view>
+        </view>
+        <view class="weui-uploader__bd">
+          <view class="weui-uploader__files" id="uploaderFiles">
+            <block wx:for="{{dianmianfiles}}" wx:key="*this">
+              <view class="weui-uploader__file" bindtap="previewImage" data-src="{{item}}">
+                <image class="weui-uploader__img" src="{{item}}" mode="aspectFill" />
+              </view>
+            </block>
+          </view>
+          <view class="weui-uploader__input-box">
+            <view class="weui-uploader__input" data-bind="dianmianfiles" bindtap="chooseImage"></view>
+          </view>
+        </view>
+      </view>
+
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">位置</view>
+        </view>
+        <view class="weui-cell__bd">
+          <view class="weui-select weui-select_in-select-after" bindtap='xuanzeweizhi'>{{weizhi.name}}</view>
+        </view>
+      </view>
+      <view class="weui-cell weui-cell_select">
+        <view class="weui-cell__hd weui-cell__hd_in-select-after">
+          <view class="weui-label">电话</view>
+        </view>
+         <view class="weui-cell__bd">
+          <input class="weui-input" value='{{dianhua}}' data-bind="dianhua" bindblur="valuechangge" placeholder="请输入商铺电话" />
+        </view>
+      </view>
+    </view>
+
+    <view class="weui-cells__title"></view>
+
+    <label class="weui-agree" for="weuiAgree">
+      <view class="weui-agree__text">
+        阅读并同意
+        <navigator url="../mianze/mianze" class="weui-agree__link">《免责声明》</navigator>
+      </view>
+    </label>
+    <view class="weui-btn-area">
+      <button class="weui-btn" type="primary" bindtap="FaBuRenWu">提交</button>
+    </view>
+  </view>
+</view>

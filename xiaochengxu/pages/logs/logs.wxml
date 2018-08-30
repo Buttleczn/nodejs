@@ -1,0 +1,35 @@
+<view>
+  <view class="userinfo">
+    <image bindtap="bindViewTap" class="userinfo-avatar xuanzhuan" src="{{userInfo.avatarUrl}}" background-size="cover"></image>
+    <view style="display:flex;flex-direction:column;">
+      <text class="userinfo-nickname">{{userInfo.nickName}}</text>
+      <view>
+        <label>级别：</label>
+        <text class="shanguang">{{userInfo.chengwei}}</text>
+      </view>
+    </view>
+  </view>
+  <view >
+     <view class="weui-cells weui-cells_after-title">
+            <navigator url="../renwulist/renwulist?rwtype=mine" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">我的悬赏</view>
+                <view class="weui-cell__ft  fabushuliang">{{renwulist.xuanshang}}</view>
+                <view class="weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="../renwulist/renwulist?openid=wwgz" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">未完工作</view>
+                <view class="weui-cell__ft  weibanshuliang">{{renwulist.weiban}}</view>
+                 <view class="weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator url="../qianbao/qianbao?openid={{userInfo.openId}}" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">我的钱包</view>
+                 <view class="weui-cell__ft_in-access"></view>
+            </navigator>
+            <navigator wx:if="{{userInfo.IsAdmin==1}}" url="../renwulist/renwulist?rwtype=shh" class="weui-cell weui-cell_access" hover-class="weui-cell_active">
+                <view class="weui-cell__bd">需要审核</view>
+                <view class="weui-cell__ft  weibanshuliang">{{renwulist.shsl}}</view>
+                 <view class="weui-cell__ft_in-access"></view>
+            </navigator>
+        </view>
+  </view>
+</view>

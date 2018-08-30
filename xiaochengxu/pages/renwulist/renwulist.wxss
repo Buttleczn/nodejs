@@ -1,0 +1,7 @@
+/* pages/renwulist/renwulist.wxss */
+.weui-media-box__info__meta{
+  float: right;
+}
+.zm_list{
+  align-items: flex-start 
+}
